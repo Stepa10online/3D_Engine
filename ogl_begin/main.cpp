@@ -13,7 +13,7 @@
 
 #pragma endregion
 
-// git test
+// git test 
 
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
