@@ -20,8 +20,8 @@ void Player::PlayerControl()
 	else SetCameraOffset(0, 0, 0);
 
 //	 Adjusting player's Z position (elevation) whether user pressed SPACE or SHIFT
-	if (GetKeyState(VK_SPACE) < 0) Move(new float[3] {0,0, -0.05f});
-	if (GetKeyState(VK_LSHIFT) < 0) Move(new float[3] {0, 0, 0.05f}); //this->pos[2] += 0.05f;
+	if (GetKeyState(VK_SPACE) < 0) Move(new float[3] {0,0, -0.05f}); // Moving UP
+	if (GetKeyState(VK_LSHIFT) < 0) Move(new float[3] {0, 0, 0.05f}); // Moving UP
 
 //	 Rotating player's camera
 	if (GetKeyState(VK_UP) < 0) this->camera_angle_x += 1.0f;

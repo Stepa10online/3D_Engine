@@ -117,7 +117,6 @@ void Mob::SetPos(float* _pos)
 	{
 		this->pos[i] = _pos[i];
 	}
-	delete[] pos;
 }
 
 void Mob::SetPos(float x, float y, float z)

@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <gl/gl.h>
 #include <string>
+#include <array>
 #pragma comment(lib, "opengl32.lib")
 class HitBox
 {
@@ -26,7 +27,7 @@ public:
 	void SetColor(float* color);
 
 	void Display();
-	void Update(float* pos, float* size = NULL);
+	void SetParams(float* _pos, float* _size = NULL);
 
 	float* GetPos();
 	float* GetSize();

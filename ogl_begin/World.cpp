@@ -96,29 +96,27 @@ Mob& World::EditMob(std::string _id)
 		return this->mobs.size();
 	}
 
-	Mob* World::GetMob(const std::string _id)
+	Mob& World::GetMob(const std::string _id)
 	{
 		for (int i = 0; i < this->mobs.size(); i++)
 		{
 			if (this->mobs[i].GetID() == _id)
 			{
-				return &mobs[i];
+				return mobs[i];
 			}
 		}
-		return NULL;
 	}
 
-	Mob* World::GetMob(const unsigned int _index)
+	Mob& World::GetMob(const unsigned int _index)
 	{
 		if (_index >= this->mobs.size())
 		{
 			std::wstring s = L"Выход за пределы массива\nкласс: World\nфункция: World::GetMob(const unsigned int _index)\nиз-за: _index = " + std::to_wstring(_index) + L"\nстрока: 112";
 			MessageBoxW(NULL, s.c_str(), L"Critical Error> Out Of Range", 1);
-			//throw OSS_OUT_OF_RANGE;
-			return NULL;
+			throw OSS_OUT_OF_RANGE;
 		}
 		else
-			return &mobs[_index];
+			return mobs[_index];
 	}
 
 #pragma endregion
@@ -168,6 +166,6 @@ void World::UpdateHitboxes()
 {
 	for (int i = 0; i < mobs.size(); i++)
 	{
-		mobs[i].GetHitBox().Update(mobs[i].GetPosf());
+		mobs[i].GetHitBox().SetParams(mobs[i].GetPosf());
 	}
 }

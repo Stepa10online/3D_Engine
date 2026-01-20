@@ -56,8 +56,8 @@ public:
 #pragma region Mob
 
 	unsigned int GetMobAmount();
-	Mob* GetMob(const std::string _id);
-	Mob* GetMob(const unsigned int _index);
+	Mob& GetMob(const std::string _id);
+	Mob& GetMob(const unsigned int _index);
 
 #pragma endregion
 

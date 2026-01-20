@@ -64,24 +64,25 @@ void HitBox::Display()
     glPopMatrix();
 }
 
-void HitBox::Update(float* pos, float* size)
+void HitBox::SetParams(float* _pos, float* _size)
 {
     // update position
-    if (pos != NULL)
+    if (_pos != NULL)
     {
-        this->x = -pos[0];
-        this->y = -pos[1];
-        this->z = -pos[2];
+        this->x = -_pos[0];
+        this->y = -_pos[1];
+        this->z = -_pos[2];
     }
     // update size
-    if (size != NULL)
+    if (_size != NULL)
     {
-        this->w = size[0];
-        this->d = size[1];
-        this->h = size[2];
+        this->w = _size[0];
+        this->d = _size[1];
+        this->h = _size[2];
     }
-    delete[] pos;
-    delete[] size;
+
+    //delete[] _pos;
+    //delete[] _size;
 }
 
 float* HitBox::GetPos()

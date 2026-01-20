@@ -9,6 +9,7 @@ void Entity::SetColor(float* color)
 {
     for (int i = 0; i < 4; i++)
         this->color[i] = color[i];
+    delete[] color;
 }
 
 void Entity::SetColor(float r, float g, float b, float a)
@@ -30,7 +31,7 @@ float Length(float* vec)
 }
 float* Normalize(float* vec)
 {
-    float normalized_vec[3];
+    float* normalized_vec = new float[3];
     float length = Length(vec);
     normalized_vec[0] = vec[0] / length;
     normalized_vec[1] = vec[1] / length;
@@ -42,7 +43,7 @@ void Entity::Display(float x, float y, float z)
 {
     Plane *ptr_plane = new Plane(pos[0], pos[1], pos[2], 0.2f,0.2f, this->color);
 
-    float target_pos[3] = { x - pos[0], y - pos[1], z - pos[2] };
+    float* target_pos = new float[3]{ x - pos[0], y - pos[1], z - pos[2] };
 
     float* direction = Normalize(target_pos);
 
@@ -57,5 +58,7 @@ void Entity::Display(float x, float y, float z)
     ptr_plane->Display();
     glPopMatrix();
 
+    delete direction;
     delete ptr_plane;
+    delete[] target_pos;
 }

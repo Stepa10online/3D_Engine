@@ -4,6 +4,7 @@
 #include <math.h>
 #include <iostream>
 #include <string>
+#include <array>
 
 #pragma region Includes
 
@@ -27,7 +28,7 @@ public:
 		pos[2] = z;
 		for (int i = 0; i < 4; i++) color[i] = 1.0f;
 	}
-	Entity(float* pos)
+	Entity(std::array<float, 3> pos)
 	{
 		this->pos[0] = pos[0];
 		this->pos[1] = pos[1];

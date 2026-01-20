@@ -13,8 +13,6 @@
 
 #pragma endregion
 
-// git test 
-
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
@@ -107,7 +105,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	// Adding 1 Mob and Editing it to stay at current place
 	world.AddMob(0, -0.33, -1, Mob::MobType::UNSTATIC);
-	world.EditMob(1).GetHitBox().Update(NULL, new float[3] {0.25, 0.25, 0.25});
+	world.EditMob(1).GetHitBox().SetParams(NULL, new float[3]{ 0.25, 0.25, 0.25 });
 
 	// Adding more mobs to the world
 	for (int i = -6; i < 6; i++)
@@ -145,7 +143,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 			player.CameraMovement();
 			
-			world.GetMob(player.GetID())->SetPos(player.GetPosf());
+			world.GetMob(player.GetID()).SetPos(player.GetPosf());
 			
 			for (int i = 1; i < world.GetMobAmount(); i++)
 			{
